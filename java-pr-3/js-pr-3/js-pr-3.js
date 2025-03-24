@@ -34,50 +34,51 @@
 
 // ____________________________________________________
 
-// 3.  ()
+// 3. 
 
-// let limit = 30 ;
-// let num = 1 ;
+    //  let a = 12345;
+    //  let b = 0;
+    //  let c = a;
 
-// if(limit > 0){
-//     console.log("Armstrong number up to $ {l}:");
-// }
+    //  while (a != 0) {
+    //     let rem = a % 10;
+    //     b += rem**5;
+    //     a = Math.floor(a/10); 
+    //  }
+    //  console.log(b);
 
-// // do{
-//     let temp = num , sum = 0, digit = ("+ num") . length ;
+    //  if (c == b) {
+    //     console.log("This is armstrong number");
+    //  }else{
+    //     console.log("This is not a armstrong number");
+    //  }
 
-//     while(temp){
-//         let digit = temp % 10, power = 1, exp = digit;
-//         while(exp--)power *= digit;
-//         sum += power;
-//         temp =~~ (temp/10);
-//     }
-
-//     if (sum === num)
-//         console.log(num);
-//         num++;
-    
-//     {  while(num<=limit);
-//     // } else{
-//         console.log("invalid number.");
-//     }
-// // }
-
-
+    //  output ==>
+    //     "4425"
+    //     "this is not a armstrong number"
+     
 
 // ____________________________________________________
 
 
 // 4.
 
-// let a = 12321;
+// let a = 151;
+// let b = 0;
+// let c=a;
 
-// if (a===true){
-//     console.log("yes");
-// }else{
-//     console.log("no");
-    
-// }
+//   while (a != 0) {
+//         let rem = a % 10;
+//         b= (10*b)+rem; 
+//         a = Math.floor(a/10); 
+//      }
+//      console.log(b);
+
+//      if(c == b){
+//         console.log("this is palidorm number");
+//      }else{
+//         console.log("this is not palidrom number");
+//      }
 
 
 
