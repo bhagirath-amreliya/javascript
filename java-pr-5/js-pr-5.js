@@ -210,6 +210,57 @@
 
                         
 
+                        // 13. write a JavaScript program given this output using replace concept. 
+                                    // Input: "I often take a walk with my dog in the evening. His dog follows him everywhere. I don't feed my dog in the morning"; 
+                                    // Output:- "I often take a walk with my cat in the evening. His cat follows him everywhere. I don't feed my cat in the morning" 
+
+                                    // function replaceDogWithCat(text) {
+                                    //     let words = text.split(" ");
+                                    //     for (let i = 0; i < words.length; i++) {
+                                    //         if (words[i] === "dog" || words[i] === "dog.") {
+                                    //             words[i] = words[i].replace("dog", "cat");
+                                    //         }
+                                    //     }
+                                    //     return words.join(" ");
+                                    // }
+
+                                    // let text = "I often take a walk with my dog in the evening. His dog follows him everywhere. I don't feed my dog in the morning";
+                                    // console.log(replaceDogWithCat(text));
+
+                                    // Output: I often take a walk with my cat in the evening. His cat follows him everywhere. I don't feed my cat in the morning.
+                                    
+                                    
+
+
+              // 14. write a JavaScript program convert string to array. 
+                                        // Input:- "Hire the top 1% freelance developers"; 
+
+                                        // function convertStringToArray(text) {
+                                        //     let words = text.split(" ");
+                                        //     return words.slice(0, 4); 
+                                        // }
+
+
+                                        // let input = "Hire the top 1% freelance developers";
+                                        // let output = convertStringToArray(input);
+                            // console.log(output); 
+
+                      // Output: ["Hire", "the", "top", "1%"]
+
+
+
+                      // 15. write a JavaScript program to convert an array to string. 
+                        // Input:- ['5', 32, 'john']; 
+
+                        // function convertArrayToString(arr) {
+                        //     return arr.join(", ");
+                        // }
+
+                        // let input = ['5', 32, 'john'];
+                        // let output = convertArrayToString(input);
+                        // console.log(output);
+
+                        // Output: 5,32, john
 
 
 
