@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-PR-8</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ebdcdc;
+            color: #333;
+            padding: 20px;
+        }
+    
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #38bdf8;
+            font-size: 44px;
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #444;
+        }
+    
+         h3 {
+            color: #616161;
+        }
+    
+        .form-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+    
+        .form-group input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 250px;
+            font-size: 16px;
+        }
+    
+        .form-group input:focus {
+            border-color: #38bdf8;
+            outline: none;
+        }
+    
+        .action-btn {
+            padding: 10px 20px;
+            background-color: #38bdf8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    
+        .action-btn:hover {
+            background-color: #31a8d3;
+        }
+    
+        h3 {
+            margin-top: 20px;
+            text-align: center;
+            color: #444;
+        }
+    
+        /* Table Styling */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+    
+        table th, table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+    
+        table th {
+            background-color: #38bdf8;
+            color: white;
+        }
+    
+        table td button {
+            padding: 5px 10px;
+            background-color: #38bdf8;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+    
+        table td button:hover {
+            background-color: #31a8d3;
+        }
+    
+        /* Cart Icon */
+        .cart-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #38bdf8;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+    
+        .cart-icon img {
+            width: 30px;
+            height: 30px;
+        }
+    
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 50%;
+            display: inline-block;
+            min-width: 20px;
+            text-align: center;
+        }
+    
+        /* Cart Panel */
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 350px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: right 0.3s ease-in-out;
+        }
+    
+        .cart-panel.open {
+            right: 0;
+        }
+    
+        .cart-panel h3 {
+            text-align: center;
+            color: #444;
+        }
+    
+        .total-value {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    
+        /* Media Queries for Responsiveness */
+        @media screen and (max-width: 768px) {
+            .form-group {
+                flex-direction: column;
+            }
+    
+            .form-group input {
+                max-width: 100%;
+            }
+    
+            .cart-icon {
+                padding: 12px;
+                bottom: 10px;
+                right: 10px;
+            }
+    
+            .cart-panel {
+                width: 300px;
+            }
+        }
+    
+    </style>
+    
+</head>
+<body>
+
+<div class="cart-icon" onclick="toggleCart()">
+  <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart">
+  <div class="cart-badge" id="cartBadge">0</div>
+</div>
+
+<div class="cart-panel" id="cartPanel">
+  <h3>Your Cart</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th><th>Qty</th><th>₹Total</th><th>Act</th>
+      </tr>
+    </thead>
+    <tbody id="cartTable"></tbody>
+  </table>
+  <div class="total-value" id="totalValue">Total: ₹0</div>
+</div>
+
+<div class="container">
+  <h2>Product Details</h2>
+  <div class="form-group">
+    <input type="text" id="name" placeholder="Product Name">
+    <input type="number" id="price" placeholder="Price">
+    <input type="number" id="quantity" placeholder="Quantity">
+    <input type="text" id="category" placeholder="Category">
+</div>
+
+  <button class="action-btn" onclick="addOrUpdateProduct()">Add Product</button>
+
+  <div>
+    <h3 style="color:#38bdf8; text-align:center;">Product List</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th><th>Price</th><th>Qty</th><th>Total</th><th>Cat</th><th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="productTable"></tbody>
+      </table>
+  </div>
+
+    <script src="JS-PR-8.js"></script>
+</body>
+</html>
