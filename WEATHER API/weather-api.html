@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+<style>
+    /* Global Styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background-image: url(img/screen-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Header */
+.search-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(232, 225, 225, 0.777);
+  color: #fff;
+  font-size: 16px;
+  margin-right: 10px;
+  outline: none;
+}
+
+.search-box button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.search-box button:hover {
+  transform: scale(1.1);
+}
+
+/* Weather Box */
+.weather-box {
+  margin-bottom: 20px;
+  display: none;
+}
+
+.weather-box.active {
+  display: block;
+}
+
+.weather-box img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.weather-box .temperature {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.weather-box .description {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Weather Details */
+.weather-details {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.weather-details .humidity,
+.weather-details .wind {
+  text-align: center;
+}
+
+.weather-details i {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Error 404 */
+.not-found {
+  display: none;
+  color: #ff4d4d;
+}
+
+.not-found.active {
+  display: block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.extra-details {
+  margin-top: 15px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 0 10px;
+  color: #ddd;
+}
+
+.weather-icon img {
+  width: 80px;
+  margin: 10px auto;
+  display: block;
+}
+
+
+</style>
+<body>
+  <div class="container">
+    <div class="search-box">
+      <i class="bx bxs-map"></i>
+      <input type="text" placeholder="Enter your location" />
+      <!-- Fix: Replace button class with icon inside button -->
+      <button>
+        <i class="bx bx-search"></i>
+      </button>
+    </div>
+
+    <!-- Optional: hide via CSS instead of text -->
+    <p class="city-hide" style="display: none;">city hide</p>
+
+    <div class="weather-box">
+      <div class="box">
+        <div class="info-weather">
+          <div class="weather">
+            <img src="img/cloud.jpg" alt="cloud" title="cloud" />
+            <p class="temperature">0 <span>°C</span></p>
+            <p class="description">Broken Clouds</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="weather-details">
+      <div class="humidity">
+        <i class="bx bx-water"></i>
+        <div class="text">
+          <div class="info-humidity"><span>0%</span></div>
+          <p>Humidity</p>
+        </div>
+      </div>
+      <div class="wind">
+        <i class="bx bx-wind"></i>
+        <div class="text">
+          <div class="info-wind"><span>0Km/h</span></div>
+          <p>Wind Speed</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="not-found" style="display: none;">
+      <div class="box">
+        <img src="img/404-status-code.jpg" alt="error" title="error" width="80%" />
+        <p>City not found</p>
+      </div>
+    </div>
+
+    <div class="extra-details">
+  <div><strong>Feels Like:</strong> <span class="feels-like">0°C</span></div>
+  <div><strong>Visibility:</strong> <span class="visibility">10 km</span></div>
+  <div><strong>Pressure:</strong> <span class="pressure">1013 hPa</span></div>
+  <div><strong>Sunrise:</strong> <span class="sunrise">06:00 AM</span></div>
+  <div><strong>Sunset:</strong> <span class="sunset">06:00 PM</span></div>
+</div>
+
+<div class="weather-icon">
+  <img src="img/sun.jpg" alt="Weather Icon" />
+</div>
+
+
+  </div>
+
+  <!-- Always put scripts before closing body tag -->
+  <script src="weather-api.js"></script>
+</body>
+</html>
