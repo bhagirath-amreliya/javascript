@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COVID-19 India Stats</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<style>
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap');
+
+/* Base styling */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    background-image: url(https://avatars.mds.yandex.net/i?id=f8b434d812a6912434a72359cd3d0f84f106c3f8-11444350-images-thumbs&n=13);
+    background-size: cover;
+    /* position: relative; */
+    min-height: 100vh;
+}
+
+/* Overlay on background */
+
+
+/* Smooth transition */
+* {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 0 20px;
+    font-size: 2.8em;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ffeb3b;
+}
+
+h3 {
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+/* Input group */
+.input-group {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: #1e1e1e;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e68a00;
+}
+
+/* Output section */
+#output {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+/* Card layout */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Card design */
+.card {
+    width: 250px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+    background-blend-mode: multiply;
+    backdrop-filter: blur(2px);
+}
+
+.card h4 {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card themes */
+.card-theme-1 { background: linear-gradient(135deg, #ff6f61, #d45079); }
+.card-theme-2 { background: linear-gradient(135deg, #6a82fb, #fc5c7d); }
+.card-theme-3 { background: linear-gradient(135deg, #42e695, #3bb2b8); }
+.card-theme-4 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+.card-theme-5 { background: linear-gradient(135deg, #43cea2, #185a9d); }
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .card {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2, h3 {
+        font-size: 1.2em;
+    }
+}
+
+
+</style>
+<body>
+    <h1>COVID-19 India Stats</h1>
+
+    <div class="input-group">
+        <label for="dateInput">Enter Date (YYYY-MM-DD):</label>
+        <input type="date" id="dateInput">
+        <button onclick="fetchData()">Get Data</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script src="corona-api.js"></script>
+</body>
+</html>
