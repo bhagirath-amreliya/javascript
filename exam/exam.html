@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXAM</title>
+</head>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8fb;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 40px;
+            text-align: center;
+            color: #2d3a4b;
+            margin-top: 30px;
+        }
+        section {
+            background: #fff;
+            max-width: 400px;
+            margin: 24px auto;
+            padding: 20px 18px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #e0e0e0;
+        }
+        h2 {
+            color: #388e3c;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        form input, form select {
+            padding: 8px;
+            border: 1px solid #b2dfdb;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        form button {
+            background: #43c6ac;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        form button:hover {
+            background: #388e3c;
+        }
+        #search-filter input, #search-filter select {
+            margin-bottom: 8px;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #b2dfdb;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        #clear-filters {
+            background: #e57373;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background 0.2s;
+        }
+        #clear-filters:hover {
+            background: #c62828;
+        }
+        #recipe-list {
+            list-style: none;
+            padding: 0;
+        }
+        .recipe-item {
+            border-bottom: 1px solid #e0f2f1;
+            padding: 10px 0;
+        }
+        .recipe-title {
+            font-weight: bold;
+            color: #388e3c;
+        }
+        .recipe-meta {
+            color: #607d8b;
+            font-size: 0.95em;
+        }
+        @media (max-width: 500px) {
+            section {
+                max-width: 98vw;
+                padding: 12px 2vw;
+            }
+        }
+</style>
+<body>
+    
+    <h1>Recipe Book</h1>
+    <section id="add-recipe">
+        <h2>Add Recipe</h2>
+        <form id="recipe-form">
+            <input type="text" id="name" placeholder="Recipe Name" required>
+            <input type="text" id="cuisine" placeholder="Cuisine" required>
+            <input type="text" id="ingredients" placeholder="Ingredients (comma separated)" required>
+            <input type="number" id="time" placeholder="Cooking Time (min)" required>
+            <select id="diet">
+                <option value="">Dietary Preference</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="gluten-free">Gluten-Free</option>
+                <option value="none">None</option>
+            </select>
+            <button type="submit">Add Recipe</button>
+        </form>
+    </section>
+    <section id="search-filter">
+        <h2>Search & Filter</h2>
+        <input type="text" id="search" placeholder="Search by name or ingredient">
+        <select id="filter-cuisine">
+            <option value="">All Cuisines</option>
+        </select>
+        <select id="filter-diet">
+            <option value="">All Diets</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="gluten-free">Gluten-Free</option>
+            <option value="none">None</option>
+        </select>
+        <input type="number" id="filter-time" placeholder="Max Cooking Time (min)">
+        <button id="clear-filters">Clear Filters</button>
+    </section>
+    <section id="recipes">
+        <h2>Recipes</h2>
+        <ul id="recipe-list"></ul>
+    </section>
+
+    <script src="exam.js"></script>
+</body>
+</html>
